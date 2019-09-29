@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Sound</title>
+
+	<style type="text/css">
+		body{
+			background: #0006ff;
+			overflow: hidden;
+			
+		}
+		.cir{
+			height: 50px;
+			width: 50px;
+			background: #0006ff;
+			border-radius: 50%;
+		}
+		.sq{
+			height: 50px;
+			width: 50px;
+			background:#0006ff;
+		}
+		#items{
+			transition: all 1s;
+			display: none ;
+		}
+		.cir .sq {
+			pointer-events: none;
+		}
+			
+		#scir2{
+			position: absolute;
+			transition: all 1s;
+			display: none 
+			height: 50px;
+			width: 50px;
+			left: 45%;
+			top:5%;
+			border-radius: 50%;
+			z-index:-1;
+			animation:mymove 2s infinite;
+			animation-direction: alternate;
+			}
+		 
+		 @keyframes mymove {
+		  from {top:5%;}
+		  to {top:80%;}
+		  }
+
+		#cir2{
+			position: absolute;
+			left: 45%;
+			top:5%;
+		}
+		
+		#sq1{
+			position: absolute;
+			left: 5%;
+			top:40%;
+		}
+		body #items #ssq1{
+			position: absolute;
+			left: 90%;
+			top:40%;
+			animation:movesq1 2s infinite;
+			animation-direction: alternate;
+		}
+
+		@keyframes movesq1 {
+			 from {left:5%;}
+			 to {top:40%;}
+		  }
+
+		#sq2{
+			position: absolute;
+			left: 90%;
+			top:40%;
+		}
+
+		#cir5{
+			position: absolute;
+			left: 45%;
+			top:80%;
+		}
+
+		#cir0{
+			position: absolute;
+			height: 50px;
+			width: 50px;
+			background-color: #fffc00;
+			border-radius: 50%;
+			left: 45%;
+			top:40%;
+			z-index:1;
+		}
+		#ssq2{
+			position: absolute;
+			width: 50px;
+			height: 50px;
+
+			left: 65%;
+			top:40%;
+			transform:translate(-40%,-40%);
+			transition: all 1s;
+			z-index:-2;
+			animation:movesq2 2s infinite;
+			opacity: 0.6;
+		}
+
+		@keyframes movesq2 {
+			from {width:20px;
+				 height: 20px;}
+			to {width: 360px;
+				height: 360px;}
+			}
+		#scir5{
+			position: absolute;
+			opacity: 0.4;
+			display: none;
+			left: 25%;
+			top:50%;
+			width: 600px;
+			z-index:-3;
+		}
+		body #items #ssqq1{
+			position: absolute;
+			opacity: 0.2;
+			display: none;
+			left: 0%;
+			top:5%;
+			width: 500px;
+			z-index:-3;
+		}
+		body #items #ssqq2{
+			position: absolute;
+			opacity: 0.2;
+			display: none;
+			left: 0%;
+			width: 1000px;
+			z-index:-4;
+		}
+
+	</style>
+</head>
+
+
+<body>
+
+		<div id="cir0"> </div>
+
+	<div id=items>
+		<div id="cir2" class="cir"> </div>
+		<div id ="scir2" class ="smcir"></div>
+
+		<div id="sq1" class="sq"> </div>
+		<div id="ssq1" class="smsq1"></div>
+		<img id="ssqq1" src=gif4.gif> </img>
+		<img id="ssqq2" src=gif3.gif> </img>
+
+		<div id="sq2" class="sq"> </div>
+		<div id="ssq2" class="smsq2"></div>
+
+		<div id="cir5" class="cir"> </div>
+		<img id="scir5" src=imGif1.gif class="smcir2"> </img>
+	</div>
+
+	<div id=music>
+		<audio src="M1.mp3" loop id=M1></audio>
+		<audio src="M2.mp3" loop id=M2></audio>
+		<audio src="M3_Ba.mp3" loop id=M3></audio>
+		<audio src="M4_radio.mp3" loop id=M4></audio>
+	</div>
+
+	
+
+<script type="text/javascript">
+	var icir = "off"
+	cir0.onclick = function(){
+		if(icir == "off"){
+			items.style.display ="block";
+		
+			document.body.style.background = "#000";
+			cir0.style.backgroundColor = "#fffc00";
+			icir = "on";
+		}else{items.style.display ="none";
+			document.body.style.background = "#0006ff";
+			cir0.style.backgroundColor = "#fffc00";
+			icir = "off"}
+		}
+
+	var icir2 = "off"
+	cir2.onclick = function(){
+		if(icir2 == "off"){
+			scir2.style.display="block";
+			scir2.style.background = "red";
+			cir2.style.background = "white";
+			scir2.style.width="50px";
+			scir2.style.height="50px";
+			scir2.style.opacity="1";
+			M2.play();
+			M2.volume=0.3
+			icir2 = "on";
+		}else{
+			scir2.style.display="none";
+			cir2.style.background = "#0006ff";
+			M2.pause();
+			icir2 = "off";}
+		}
+
+	var isq1 = "off"
+	sq1.onclick = function(){
+		if(isq1 == "off"){
+		ssq1.style.display="block";
+		sq1.style.background="white";
+		ssq1.style.background="gray";
+		ssqq1.style.display="block";
+		ssqq2.style.display="block";
+		ssq1.style.width="50px";
+		ssq1.style.height="50px";
+		M1.play();
+		M1.volume=0.4;
+		isq1 = "on"
+		}else{
+			ssq1.style.display="none";
+			ssqq1.style.display="none";
+			ssqq2.style.display="none";
+			sq1.style.background = "#0006ff";
+			M1.pause();
+			isq1 = "off";}
+		}
+		
+	var isq2 = "off"
+	sq2.onclick = function(){
+		if(isq2 == "off"){
+			ssq2.style.display="block";
+			ssq2.style.border="3px solid #fff";
+			sq2.style.background="white";
+			
+			isq2 = "on";
+			M3.play();
+			M3.volume=0.1;
+			
+			}else{
+				ssq2.style.display="none";
+				sq2.style.background = "#0006ff";
+				isq2 = "off";
+				M3.pause();}
+			}
+
+	var icir3 = "off"
+	cir5.onclick = function(){
+		if(icir3 == "off"){
+			scir5.style.display="block";
+			cir5.style.background="white";
+			icir3 = "on";
+			M4.play();
+			
+			}else{
+				scir5.style.display="none";
+				cir5.style.background = "#0006ff";
+				icir3 = "off";
+				M4.pause();}
+			}
+
+
+</script>
+</body>
+</html>
